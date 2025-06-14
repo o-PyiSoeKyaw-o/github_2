@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-A44e..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         * {
             margin: 0;
@@ -29,19 +31,24 @@
             gap: 2rem;
             padding: 3rem 1rem;
         }
-        .services-card{
+        .service-card{
+            cursor: pointer;
             border-radius: 12px;
             padding: 2rem;
             width: 280px;
             text-align: center;
             transform: translateY(0);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
+            opacity: 1;
             animation: fadeInUp 0.8s forwards;
         }
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+        .service-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         .service-card .icon{
             font-size: 2.5rem;
@@ -117,7 +124,7 @@
     </style>
 </head>
 <body class="dark-mode">
-    <button id="theme_toggle" aria-label=""toggle theme>
+    <button id="theme-toggle" aria-label="toggle theme">
         <i class="fas fa-sun"></i>
     </button>
     <header>
@@ -126,7 +133,7 @@
     </header>
     <section class="services">
         <div class="service-card">
-            <i class="fas fa-paint-bush icon"></i>
+            <i class="fas fa-paint-brush icon"></i>
             <h2>Web Design</h2>
             <p>Stylish, Responsive websites customized for your brand.</p>
         </div>
