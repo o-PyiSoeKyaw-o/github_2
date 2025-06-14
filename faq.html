@@ -4,9 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 40px;
+          background-color: #f9f9f9;
+        }
+    
+        h1 {
+          text-align: center;
+        }
+    
+        .faq-container {
+          max-width: 800px;
+          margin: auto;
+        }
+    
+        .faq {
+          margin: 10px 0;
+          background-color: #fff;
+          border-radius: 5px;
+          border: 1px solid #ddd;
+        }
+    
+        .faq-question {
+          padding: 15px;
+          cursor: pointer;
+          font-weight: bold;
+          background-color: #f1f1f1;
+          border-bottom: 1px solid #ddd;
+        }
+    
+        .faq-answer {
+          padding: 15px;
+          display: none;
+          background-color: #fff;
+        }
+    
+        .active .faq-answer {
+          display: block;
+        }
+      </style>
 </head>
 <body>
     <h1>faq page</h1>
     <h1>BnV</h1>
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-container">
+  
+      <div class="faq">
+        <div class="faq-question">What is your return policy?</div>
+        <div class="faq-answer">Our return policy lasts 30 days. If 30 days have gone by since your purchase, unfortunately we can’t offer you a refund or exchange.</div>
+      </div>
+  
+      <div class="faq">
+        <div class="faq-question">Do you ship internationally?</div>
+        <div class="faq-answer">Yes, we ship worldwide. Shipping costs and delivery times may vary depending on your location.</div>
+      </div>
+  
+      <div class="faq">
+        <div class="faq-question">How can I track my order?</div>
+        <div class="faq-answer">After placing an order, you'll receive a confirmation email with a tracking number and link.</div>
+      </div>
+  
+    </div>
+  
+    <script>
+      const faqs = document.querySelectorAll('.faq');
+      faqs.forEach(faq => {
+        faq.querySelector('.faq-question').addEventListener('click', () => {
+          faq.classList.toggle('active');
+        });
+      });
+    </script>
 </body>
 </html>
