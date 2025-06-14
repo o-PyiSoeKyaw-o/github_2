@@ -4,14 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-A44e..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header, footer, .services, .service-card {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header p{
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        .services{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3rem 1rem;
+        }
+        .service-card{
+            cursor: pointer;
+            border-radius: 12px;
+            padding: 2rem;
+            width: 280px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 1;
+            animation: fadeInUp 0.8s forwards;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+        .service-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .service-card .icon{
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        /* theme */
+        body.dark-mode{
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        body.dark-mode header, body.dark-mode footer {
+            background-color: #1e1e1e;
+            color:#ccc;
+        }
+        body.dark-mode .service-card{
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+        }
+        body:not(.dark-mode) {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        body:not(.dark-mode) header, body:not(.dark-mode) footer{
+            background-color: #ffffff;
+            color: #444;
+        }
+        body:not(.dark-mode) .service-card {
+            background-color: #ffffff;
+            border:1px solid #ddd;
+        }
+        /* theme end */
+        /* toggle */
+        #theme-toggle {
+            position: fixed;
+            top:1rem;
+            right:1rem;
+            background:none;
+            color:#f1c40f;
+            font-size:1.5rem;
+            cursor:pointer;
+            z-index:1000;
+            transition:color 0.3s ease;
+        }
+        body.dark-mode #theme-toggle {
+            color: #ffffff;
+        }
+        /* toggle end */
+        /* animantion */
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(30px);
+                opacity:0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity:1;
+            }
+        }
+        /* animantion end */
+        /* responsive */
+        @media (max-width: 768px) {
+            .services{
+                flex-direction:column;
+                align-items:center;
+            }
+        }
+        /* responsive end*/
+    </style>
 </head>
 <body class="dark-mode">
-    <button id="theme_toggle" aria-label=""toggle theme>
+    <button id="theme-toggle" aria-label="toggle theme">
         <i class="fas fa-sun"></i>
     </button>
     <header>
         <h1>OurService</h1>
         <p>Professional Service</p>
     </header>
+    <section class="services">
+        <div class="service-card">
+            <i class="fas fa-paint-brush icon"></i>
+            <h2>Web Design</h2>
+            <p>Stylish, Responsive websites customized for your brand.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-code icon"></i>
+            <h2>Development</h2>
+            <p>Reliable and Scalable coding solution.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-chart-line icon"></i>
+            <h2>SEo</h2>
+            <p>Boost your Search Engine.</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-shopping-cart icon"></i>
+            <h2>E-commerce</h2>
+            <p>Launch your online store Sales Double up.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025.All rights Rerserved.</p>
+    </footer>
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = toggleBtn.querySelector('i');
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+    </script>
 </body>
 </html>
